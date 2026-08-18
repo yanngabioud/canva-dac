@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CANDIDATE · RE · Substack · post cover safezone · 1572×1048 · CLARITY BEFORE TACTICS · Helvetica · P145</title>
+<style>
+  /*
+   * SSoT: SUBSTACK-THUMBNAIL-SAFE-ZONE · COVER-POLICY · tokens.json (P130/P145)
+   * Compose canvas: 1572×1048 (Matrix: post cover safezone)
+   * Upload: prefer 1572 PNG; if Substack rejects → center-crop to 1456×1048 AFTER compose
+   * Safe box (critical type only): L300–R1272 · T224–B824
+   * Mark: LIFE PERFORMANCES (not Yann's Club) · accent #FF0000
+   * Type: Helvetica Neue Black · flush-left · all glyphs inside safe box
+   */
+  :root {
+    --bg: #000000;
+    --text: #FFFFFF;
+    --accent: #FF0000;
+    --safe-l: 300px;
+    --safe-r: 1272px;
+    --safe-t: 224px;
+    --safe-b: 824px;
+    --type-l: 820px;   /* inside safe-l…safe-r */
+    --type-max: 430px; /* 820 + 430 = 1250 < 1272 */
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  .page {
+    width: 1572px; height: 1048px; background: var(--bg);
+    position: relative; overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Face = edge fill OK outside safe box; eyes upper-center of frame */
+  .face {
+    position: absolute; left: 0; top: 0;
+    width: 980px; height: 1048px;
+    object-fit: cover; object-position: 42% 12%;
+    filter: grayscale(100%) contrast(1.14);
+    display: block;
+  }
+  .panel {
+    position: absolute; left: 760px; top: 0; width: 812px; height: 1048px;
+    background: #000000;
+  }
+  /* Optional debug: add class "show-safe" on .page to visualize crop box */
+  .safe-guide {
+    display: none;
+    position: absolute;
+    left: var(--safe-l); top: var(--safe-t);
+    width: calc(var(--safe-r) - var(--safe-l));
+    height: calc(var(--safe-b) - var(--safe-t));
+    border: 1px dashed rgba(255,0,0,0.45);
+    pointer-events: none; box-sizing: border-box; z-index: 9;
+  }
+  .page.show-safe .safe-guide { display: block; }
+  .mark {
+    position: absolute; left: var(--type-l); top: 248px;
+    margin: 0; padding: 0; max-width: var(--type-max);
+    color: var(--text); font-size: 20px; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    white-space: nowrap;
+  }
+  .underline {
+    position: absolute; left: var(--type-l); top: 280px;
+    width: 220px; height: 3px; background: var(--accent);
+  }
+  .t1, .t2, .t3 {
+    position: absolute; left: var(--type-l);
+    margin: 0; padding: 0; max-width: var(--type-max);
+    color: var(--text);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 78px; font-weight: 900; line-height: 0.92;
+    text-transform: uppercase; letter-spacing: -0.02em;
+    text-align: left;
+    overflow: hidden;
+  }
+  .t1 { top: 340px; }
+  .t2 { top: 430px; }
+  .t3 { top: 520px; } /* last baseline clears safe-b 824 */
+</style>
+</head>
+<body>
+  <div class="page"
+       data-document-role="page"
+       data-label="Substack post cover safezone 1572x1048 Helvetica P145"
+       data-safe-l="300" data-safe-r="1272" data-safe-t="224" data-safe-b="824"
+       data-export-note="Prefer 1572 PNG; center-crop to 1456x1048 only if Substack rejects">
+    <img class="face" width="980" height="1048"
+         src="https://substack-post-media.s3.amazonaws.com/public/images/13e5cbb1-c57f-43cf-aa6c-f67a2ed857f6_1024x1024.jpeg"
+         alt="Yann Gabioud Face Pack portrait"/>
+    <div class="panel" aria-hidden="true"></div>
+    <div class="safe-guide" aria-hidden="true"></div>
+    <p class="mark">LIFE PERFORMANCES</p>
+    <div class="underline" aria-hidden="true"></div>
+    <p class="t1">CLARITY</p>
+    <p class="t2">BEFORE</p>
+    <p class="t3">TACTICS</p>
+  </div>
+</body>
+</html>
