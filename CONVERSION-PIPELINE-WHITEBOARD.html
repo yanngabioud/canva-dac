@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Conversion pipeline · 3B Guide · whiteboard</title>
+<style>
+  :root {
+    --bg: #000000;
+    --text: #FFFFFF;
+    --muted: #8a8a8a;
+    --line: #2a2a2a;
+    --accent: #FF0000;
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); }
+  .page {
+    width: 1920px; height: 1080px;
+    background: var(--bg); color: var(--text);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative; overflow: hidden;
+    box-sizing: border-box;
+    padding: 48px 56px 40px;
+  }
+  .kicker {
+    margin: 0 0 8px;
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); font-weight: 400;
+  }
+  h1 {
+    margin: 0 0 10px;
+    font-size: 42px; font-weight: 900; letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .rule { width: 72px; height: 3px; background: var(--accent); margin: 0 0 28px; }
+  .law {
+    position: absolute; right: 56px; top: 48px;
+    max-width: 420px;
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    color: #e8e8e8; font-size: 15px; line-height: 1.4;
+  }
+  .law strong { color: #fff; }
+  .row {
+    display: grid;
+    grid-template-columns: 200px 16px 220px 16px 220px 16px 220px 16px 260px;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 8px;
+  }
+  .node {
+    border: 1px solid var(--line);
+    padding: 16px 16px 14px;
+    min-height: 118px;
+  }
+  .node.capture { border: 2px solid var(--accent); }
+  .phase { margin: 0 0 6px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .title { margin: 0 0 6px; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+  .sub { margin: 0; font-size: 13px; color: #cfcfcf; line-height: 1.35; }
+  .arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 22px; font-weight: 700;
+  }
+  .doors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .door {
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    min-height: 132px;
+  }
+  .door.primary { border: 2px solid var(--accent); }
+  .jobs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .jobs p { margin: 0; font-size: 13px; color: #c8c8c8; line-height: 1.4; }
+  .jobs strong { color: #fff; display: block; font-size: 14px; margin-bottom: 4px; }
+  .foot {
+    position: absolute; left: 56px; bottom: 32px; right: 56px;
+    display: flex; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <div class="page" data-document-role="page" data-label="Conversion pipeline 3B Guide">
+    <p class="kicker">Life Performances · conversion pipe · 2026-08-18</p>
+    <h1>One job per URL.<br/>Kit routes. Substack stages.</h1>
+    <div class="rule"></div>
+    <p class="law"><strong>Never after opt-in:</strong> E1 and every post-opt-in CTA go to <em>/guide/start</em> + the PDF. Never send a lead back to <em>/guide</em> (capture).</p>
+
+    <div class="row">
+      <div class="node">
+        <p class="phase">0 · ToFu</p>
+        <p class="title">Attention</p>
+        <p class="sub">LinkedIn · X · YouTube · Substack Notes → Face hub</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node">
+        <p class="phase">1 · MoFu</p>
+        <p class="title">Face hub</p>
+        <p class="sub">yanngabioud.com<br/>Substack newsletter only</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node capture">
+        <p class="phase">1 · MoFu</p>
+        <p class="title">/guide</p>
+        <p class="sub">Kit 9762871<br/>tag SRC: Web_3B_Guide</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node">
+        <p class="phase">1 · MoFu</p>
+        <p class="title">PDF now</p>
+        <p class="sub">/thanks-guide<br/>then /guide/start</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node">
+        <p class="phase">1 · MoFu</p>
+        <p class="title">Sequence</p>
+        <p class="sub">2855828 · E1 immediate<br/>E2 +1d · E3 +2d</p>
+      </div>
+    </div>
+
+    <div class="doors">
+      <div class="door primary">
+        <p class="phase">2 · BoFu · primary</p>
+        <p class="title">Club / Gym</p>
+        <p class="sub">yanngabioud.com/club → yannsclub.com/enter · P108 email then Stripe</p>
+      </div>
+      <div class="door">
+        <p class="phase">2 · BoFu</p>
+        <p class="title">Essays</p>
+        <p class="sub">newsletter.yanngabioud.com · Life Performances · not checkout</p>
+      </div>
+      <div class="door">
+        <p class="phase">2 · BoFu</p>
+        <p class="title">1:1 coaching</p>
+        <p class="sub">yanngabioud.com/coaching · Apply / Cal · Club not required</p>
+      </div>
+      <div class="door">
+        <p class="phase">2 · BoFu</p>
+        <p class="title">Stop</p>
+        <p class="sub">The three drills are enough. Dignity. No CTA.</p>
+      </div>
+    </div>
+
+    <div class="jobs">
+      <p><strong>Home is not Kit.</strong> Face hub = permission to read. Club paste labeled = yannsclub.com. Discovery default = Face (P132).</p>
+      <p><strong>Guide is not essays.</strong> Kit 3B does not send the weekly magazine. Essays stay on Substack.</p>
+      <p><strong>Money is a door.</strong> Paying = Stripe Gym or Cal L2. CUST tags only when payment is proven.</p>
+    </div>
+
+    <div class="foot">
+      <span>Yann Gabioud · Mental trainer · yanngabioud.com</span>
+      <span>SSoT · My Conversion Phases · Glass audit · 3B sequence copy</span>
+    </div>
+  </div>
+</body>
+</html>
