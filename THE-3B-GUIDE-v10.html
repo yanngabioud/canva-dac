@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>The 3B Guide — Clarity Before Tactics</title>
+<style>
+@page {
+  size: A4;
+  margin: 0;
+  background: #000;
+}
+
+
+
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+/* Swiss Editorial Design tokens — triad · Helvetica · red touch (P130/P143/P145)
+   Machine SSoT: Systems/Operator/data/tokens.json · Grid/Measure SOP */
+:root {
+  --yg-red: #FF0000;
+  --yg-bg: #000000;
+  --yg-text: #FFFFFF;
+  --yg-border: #2a2a2a;
+  --yg-panel: #111111;
+  --yg-panel-2: #0e0e0e;
+  --yg-muted: #8a8a8a;
+  --yg-soft: #c8c8c8;
+  --yg-radius: 2pt; /* reduction — sharp ITS geometry, not soft coach radius */
+  --yg-pad: 12mm 16mm 12mm;
+  --yg-track: 0.06em;
+  --yg-measure: 66ch; /* prefer ~66ch · clamp 45–75ch */
+  --yg-measure-max: 75ch;
+  --yg-baseline: 8px;
+}
+body {
+  text-align: left; /* flush-left / ragged-right (Swiss criterion 4) */
+}
+/* Body measure — refuse wall-of-text (Grid/Measure SOP) */
+.page.chapter > p,
+.page.chapter > ul,
+.page.chapter > ol,
+.page.chapter .chapter-head + p,
+.page.chapter .felt-gap p,
+.page.chapter .about-block p,
+.page.chapter .pillar-lead > p,
+.page.chapter .pillar-lead > ul,
+.page.chapter .authority-lead > p,
+.page.cta-page > p,
+.page.cta-page .about-block p,
+.page.cta-page .cta-support {
+  max-width: min(100%, var(--yg-measure));
+}
+.page.chapter table,
+.page.chapter .sheet,
+.page.chapter .dual-row,
+.page.chapter .metric-row,
+.page.chapter .stack-3,
+.page.chapter .hud-frame,
+.page.cta-page .cta-box,
+.page.cta-page table {
+  max-width: 100%;
+}
+.page {
+  width: 210mm;
+  padding: var(--yg-pad);
+  background: #000;
+  color: #fff;
+}
+.page.cover,
+.page.opener {
+  height: 297mm;
+  max-height: 297mm;
+  min-height: 297mm;
+  display: flex;
+  flex-direction: column;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.page.cover {
+  justify-content: space-between;
+  padding-top: 20mm;
+  padding-bottom: 16mm;
+  page-break-after: always;
+  break-after: page;
+}
+.page.opener {
+  justify-content: center;
+  padding-top: 22mm;
+  padding-bottom: 22mm;
+  page-break-before: always;
+  break-before: page;
+  page-break-after: always;
+  break-after: page;
+}
+.page.chapter {
+  page-break-before: auto;
+  break-before: auto;
+}
+.page.cta-page {
+  page-break-before: always;
+  break-before: page;
+  padding-bottom: 8mm;
+}
+.eyebrow {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--yg-red);
+  letter-spacing: var(--yg-track);
+  font-size: 11pt;
+  text-transform: uppercase;
+  margin: 0 0 14pt;
+}
+.cover-editorial {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 258mm;
+  width: 100%;
+}
+.cover-top { max-width: 148mm; }
+.cover-headline {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 44pt;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  margin: 0 0 10pt;
+  font-weight: 400;
+}
+.cover-product {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 8pt;
+  font-weight: 400;
+}
+.cover-sub {
+  color: #a8a8a8;
+  font-size: 10pt;
+  margin: 0;
+  max-width: 128mm;
+  line-height: 1.45;
+}
+.cover-rule {
+  width: 36pt;
+  height: 3px;
+  background: var(--yg-red);
+  margin: 12pt 0 14pt;
+}
+.cover-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin: 18pt 0 14pt;
+  gap: 14pt;
+}
+.cover-hero svg {
+  display: block;
+  width: 100%;
+  max-width: 148mm;
+  height: auto;
+}
+.cover-pillars-pro {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10pt;
+  width: 100%;
+  max-width: 168mm;
+}
+.cover-pillars-pro li {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-top: 2px solid var(--yg-border);
+  padding-top: 8pt;
+}
+.cover-pillars-pro li.core { border-top-color: var(--yg-red); }
+.cover-pillars-pro .idx {
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 9pt;
+  letter-spacing: var(--yg-track);
+  color: var(--yg-red);
+  margin: 0 0 4pt;
+}
+.cover-pillars-pro .name {
+  display: block;
+  font-size: 9pt;
+  font-weight: 500;
+  color: #e8e8e8;
+  line-height: 1.25;
+}
+.cover-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 12pt;
+  margin-top: 6pt;
+}
+.cover-author {
+  margin: 0;
+  font-size: 11pt;
+  font-weight: 700;
+  color: #fff;
+}
+.cover-role {
+  margin: 3pt 0 0;
+  font-size: 8.5pt;
+  color: var(--yg-muted);
+}
+.cover-foot-mark {
+  font-size: 8pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  color: #666;
+  text-align: right;
+  line-height: 1.35;
+}
+.page.cover {
+  position: relative;
+  justify-content: stretch;
+  padding-top: 18mm;
+  padding-bottom: 14mm;
+  page-break-after: always;
+  break-after: page;
+}
+.page.cover .chrome { display: none; }
+.page.cover.hud-grid {
+  background-image: none;
+}
+.flow-row {
+  display: grid;
+  grid-template-columns: 1fr 28pt 1fr 28pt 1fr;
+  gap: 6pt;
+  align-items: center;
+  margin: 14pt 0 4pt;
+}
+.flow-node {
+  background: var(--yg-panel);
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  padding: 12pt 10pt;
+  text-align: center;
+}
+.flow-node .n {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18pt;
+  color: var(--yg-red);
+  margin: 0 0 4pt;
+}
+.flow-node .t {
+  font-size: 8pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  color: #bbb;
+  margin: 0 0 4pt;
+  font-weight: 700;
+}
+.flow-node .d {
+  font-size: 8.5pt;
+  color: #e0e0e0;
+  margin: 0;
+  line-height: 1.3;
+}
+.flow-arrow {
+  text-align: center;
+  color: var(--yg-red);
+  font-size: 16pt;
+  font-weight: 700;
+}
+.bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10pt;
+  margin: 12pt 0 0;
+}
+.bar-card {
+  background: var(--yg-panel);
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  padding: 12pt;
+}
+.bar-card .lab {
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 8pt;
+  font-weight: 700;
+}
+.bar-track {
+  height: 10pt;
+  background: #1c1c1c;
+  border-radius: 999pt;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 999pt;
+}
+.bar-fill.warn { width: 86%; background: var(--yg-red); }
+.bar-fill.sys { width: 34%; background: #6a6a6a; }
+.bar-card .note { margin: 8pt 0 0; font-size: 8.5pt; color: #bbb; }
+.pillars { list-style: none; padding: 0; margin: 16pt 0 0; }
+.pillars li {
+  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 13pt;
+  padding: 9pt 0 9pt 14pt;
+  border-left: 3px solid var(--yg-red);
+  margin: 0 0 8pt;
+  color: #fff;
+}
+.chrome {
+  color: var(--yg-muted);
+  font-size: 9pt;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.opener-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32pt;
+  line-height: 1.05;
+  margin: 0 0 10pt;
+  font-weight: 400;
+}
+.opener-sub { color: #bdbdbd; font-size: 12pt; margin: 0 0 16pt; }
+.opener-split {
+  display: grid;
+  grid-template-columns: 1fr 110pt;
+  gap: 16pt;
+  align-items: center;
+  width: 100%;
+}
+.opener-badge svg { width: 100pt; height: 100pt; display: block; margin-left: auto; }
+.rule { width: 40pt; height: 3px; background: var(--yg-red); margin: 0 0 4pt; }
+h2.section {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20pt;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0 0 12pt;
+  padding-left: 12pt;
+  border-left: 3px solid var(--yg-red);
+}
+.chapter-head { margin: 0 0 14pt; break-after: avoid; page-break-after: avoid; }
+.chapter-head .brief-tag { margin-bottom: 10pt; }
+.chapter-head h2.section { margin-bottom: 0; }
+.page .chapter-head ~ .chapter-head { margin-top: 22pt; }
+h3 {
+  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11.5pt;
+  font-weight: 700;
+  margin: 16pt 0 8pt;
+  color: #fff;
+  letter-spacing: 0.01em;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+h3.drill {
+  color: var(--yg-red);
+  font-size: 12.5pt;
+  margin-top: 6pt;
+}
+p { margin: 0 0 9pt; color: #e4e4e4; }
+strong { color: #fff; font-weight: 700; }
+a { color: var(--yg-red); text-decoration: none; font-weight: 600; }
+a.plain { color: inherit; font-weight: inherit; }
+a.cta-hit { display: block; color: inherit; font-weight: inherit; text-decoration: none; }
+ul, ol { margin: 0 0 12pt 18pt; padding: 0; }
+li { margin: 0 0 5pt; color: #e4e4e4; }
+blockquote {
+  margin: 14pt 0;
+  padding: 12pt 14pt;
+  border: 1px solid var(--yg-border);
+  border-left: 3px solid var(--yg-red);
+  background: var(--yg-panel);
+  color: #fff;
+  font-style: italic;
+  border-radius: var(--yg-radius);
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+p, li { orphans: 3; widows: 3; }
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 10pt 0 14pt;
+  font-size: 9pt;
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  overflow: hidden;
+  background: var(--yg-panel-2);
+  break-inside: auto;
+  page-break-inside: auto;
+}
+thead { display: table-header-group; }
+/* Do not freeze every row — that creates empty half-pages */
+tr {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+th, td {
+  border-bottom: 1px solid var(--yg-border);
+  border-right: 1px solid var(--yg-border);
+  padding: 8pt 9pt;
+  text-align: left;
+  vertical-align: top;
+}
+th:last-child, td:last-child { border-right: 0; }
+tr:last-child td { border-bottom: 0; }
+th {
+  background: #161616;
+  color: #fff;
+  font-weight: 700;
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--yg-red);
+}
+td { color: #e4e4e4; background: var(--yg-panel-2); }
+table.worksheet th { color: var(--yg-red); }
+table.worksheet td.write {
+  height: 24pt;
+  background: #1a1a1a;
+  border: 1px dashed #555;
+}
+.sheet {
+  background: #f3f3f3;
+  color: #111;
+  border: 1px solid #d0d0d0;
+  border-radius: var(--yg-radius);
+  padding: 12pt 14pt;
+  margin: 10pt 0 12pt;
+  /* Flow with pillar copy — do not force a blank half-page before every drill */
+  break-before: auto;
+  page-break-before: auto;
+  break-inside: auto;
+  page-break-inside: auto;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.sheet-head {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+.sheet-block {
+  /* Prefer continuity over empty half-pages */
+  break-inside: auto;
+  page-break-inside: auto;
+  margin: 0 0 8pt;
+}
+.sheet table {
+  break-inside: auto;
+  page-break-inside: auto;
+}
+.pillar-lead {
+  margin-bottom: 2pt;
+  /* Allow lead to share the page with the worksheet */
+  break-inside: auto;
+  page-break-inside: auto;
+}
+.authority-lead {
+  /* Soft keep — hard avoid left empty pages before proof table */
+  break-inside: auto;
+  page-break-inside: auto;
+  margin-bottom: 10pt;
+}
+.page.chapter.pillar-page {
+  /* Flow pillars — forced breaks left empty half-pages after worksheets */
+  page-break-before: auto;
+  break-before: auto;
+}
+.sheet .sheet-label {
+  color: var(--yg-red);
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  margin: 0 0 4pt;
+  font-weight: 700;
+}
+.sheet .sheet-digital {
+  color: #555;
+  font-size: 8pt;
+  margin: 0 0 10pt;
+  font-weight: 500;
+  font-style: italic;
+}
+.sheet h3.drill { color: #FF0000; }
+.sheet p, .sheet li, .sheet td, .sheet th { color: #1a1a1a; }
+.sheet strong { color: #000; }
+.sheet table {
+  border-color: #ccc;
+  background: #fff;
+}
+.sheet table th {
+  background: #ececec;
+  color: #111;
+  border-bottom: 2px solid var(--yg-red);
+}
+.sheet table td {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #ddd;
+}
+.sheet table.worksheet td.write {
+  height: 26pt;
+  background: #fff;
+  border: 1px dashed #888;
+}
+.write-line {
+  border-bottom: 1.5px solid #888;
+  height: 26pt;
+  margin: 0 0 10pt;
+  background: #fff;
+}
+.write-line.label { margin-top: 10pt; }
+.write-line.label::before {
+  content: attr(data-label);
+  display: block;
+  color: #888;
+  font-size: 8.5pt;
+  margin-bottom: 4pt;
+}
+.cta-box {
+  background: #0a0a0a;
+  border: 2px solid var(--yg-red);
+  border-radius: var(--yg-radius);
+  padding: 16pt 18pt 14pt;
+  margin: 12pt 0 8pt;
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.25);
+}
+.cta-box .big {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28pt;
+  line-height: 1.02;
+  margin: 0 0 12pt;
+  font-weight: 400;
+  color: #fff;
+}
+.cta-box .cta-support {
+  color: #cfcfcf;
+  font-size: 10.5pt;
+  margin: 0 0 14pt;
+  max-width: 94%;
+}
+.success-signal {
+  margin: 10pt 0 0;
+  padding: 8pt 10pt;
+  border-left: 3px solid var(--yg-red);
+  background: #ececec;
+  color: #111;
+  font-size: 9.5pt;
+  font-weight: 700;
+}
+.sheet .success-signal { background: #ececec; color: #111; }
+.micro-commit {
+  margin: 10pt 0 0;
+  padding: 8pt 10pt;
+  border: 1px dashed #888;
+  background: #fff;
+  color: #222;
+  font-size: 9.5pt;
+}
+.felt-gap {
+  background: var(--yg-panel);
+  border: 1px solid var(--yg-border);
+  border-left: 3px solid var(--yg-red);
+  border-radius: 0 var(--yg-radius) var(--yg-radius) 0;
+  padding: 12pt 14pt;
+  margin: 14pt 0 12pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.felt-gap h3 {
+  margin: 0 0 8pt;
+  color: var(--yg-red);
+  font-size: 10pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+}
+.felt-gap p { margin: 0 0 8pt; font-size: 10pt; color: #e8e8e8; }
+.felt-gap p:last-child { margin: 0; }
+.about-block {
+  margin-top: 10pt;
+}
+.privacy {
+  color: var(--yg-muted);
+  font-size: 8.5pt;
+  margin-top: 10pt;
+}
+.cta-box .url,
+.cta-box a.url {
+  font-size: 15pt;
+  color: var(--yg-red);
+  font-weight: 700;
+  margin: 0;
+}
+.pillar-banner {
+  display: grid;
+  grid-template-columns: 56pt 1fr;
+  gap: 12pt;
+  align-items: center;
+  margin: 0 0 14pt;
+  padding: 10pt 0 12pt;
+  border-bottom: 1px solid var(--yg-border);
+  break-after: avoid;
+  page-break-after: avoid;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.pillar-banner .num {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28pt;
+  color: var(--yg-red);
+  margin: 0;
+  line-height: 1;
+}
+.pillar-banner .ptitle {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16pt;
+  margin: 0 0 2pt;
+  font-weight: 400;
+}
+.pillar-banner .psub {
+  margin: 0;
+  color: #aaa;
+  font-size: 9.5pt;
+}
+.vignette {
+  background: var(--yg-panel);
+  border-left: 3px solid var(--yg-red);
+  border-radius: 0 var(--yg-radius) var(--yg-radius) 0;
+  padding: 12pt 14pt;
+  margin: 12pt 0 14pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.vignette .vk {
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  color: var(--yg-red);
+  margin: 0 0 6pt;
+  font-weight: 700;
+}
+.vignette p { margin: 0; color: #e8e8e8; font-size: 10pt; line-height: 1.45; }
+.compass {
+  background: var(--yg-panel);
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  padding: 16pt;
+  margin: 10pt 0 14pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.compass-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15pt;
+  margin: 0 0 12pt;
+  font-weight: 400;
+}
+.compass-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8pt;
+  text-align: center;
+  font-size: 8.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  margin-bottom: 12pt;
+}
+.compass-grid div {
+  padding: 10pt 6pt;
+  border: 1px solid var(--yg-border);
+  background: var(--yg-panel-2);
+  color: #ccc;
+  border-radius: 8pt;
+}
+.c-hub {
+  background: var(--yg-red) !important;
+  color: #fff !important;
+  font-weight: 800;
+  border-color: var(--yg-red) !important;
+}
+.c-n { grid-column: 2; }
+.c-nw { grid-column: 1; }
+.c-ne { grid-column: 3; }
+.c-w { grid-column: 1; }
+.c-e { grid-column: 3; }
+.c-sw { grid-column: 1; }
+.c-se { grid-column: 3; }
+.c-s { grid-column: 2; }
+.compass-note { color: #aaa; font-size: 9.5pt; }
+.muted { color: var(--yg-muted); font-size: 9pt; }
+.keep-together {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid-page;
+  overflow: hidden;
+}
+
+/* GEM components — same tokens as body */
+.hud-grid {
+  background-color: #000;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.hud-frame {
+  position: relative;
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  padding: 14pt 16pt;
+  background: var(--yg-panel);
+}
+.hud-frame::before,
+.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 12pt;
+  height: 12pt;
+  border: 2px solid var(--yg-red);
+}
+.hud-frame::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; border-radius: 3pt 0 0 0; }
+.hud-frame::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; border-radius: 0 0 3pt 0; }
+.brief-tag {
+  display: inline-block;
+  border: 1px solid #3a3a3a;
+  color: #b5b5b5;
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  padding: 4pt 9pt;
+  margin: 0 0 12pt;
+  border-radius: 999pt;
+  font-weight: 500;
+}
+.metric-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10pt;
+  margin: 14pt 0 6pt;
+}
+.metric-card {
+  background: var(--yg-panel);
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  padding: 12pt;
+  break-inside: avoid;
+}
+.metric-card .num {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26pt;
+  line-height: 1;
+  color: var(--yg-red);
+  margin: 0 0 6pt;
+}
+.metric-card .num.muted-num { color: #9a9a9a; }
+.metric-card .lab {
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  color: #b0b0b0;
+  margin: 0;
+  font-weight: 700;
+}
+.metric-card .sub {
+  font-size: 8.5pt;
+  color: var(--yg-muted);
+  margin: 6pt 0 0;
+  line-height: 1.35;
+}
+.dual-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10pt;
+  margin: 0 0 16pt;
+}
+.dual-card {
+  border-radius: var(--yg-radius);
+  padding: 12pt 14pt;
+  border: 1px solid var(--yg-border);
+  background: var(--yg-panel);
+}
+.dual-card.warn {
+  border-color: var(--yg-red);
+  background: #140a08;
+}
+.dual-card.sys { background: var(--yg-panel); }
+.dual-card .kicker {
+  font-size: 7.5pt;
+  letter-spacing: var(--yg-track);
+  text-transform: uppercase;
+  margin: 0 0 6pt;
+  color: var(--yg-red);
+  font-weight: 700;
+}
+.dual-card.sys .kicker { color: #9a9a9a; }
+.dual-card h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  margin: 0 0 6pt;
+  font-weight: 400;
+  color: #fff;
+}
+.dual-card p { margin: 0; font-size: 9pt; color: var(--yg-soft); line-height: 1.4; }
+.stack-3 {
+  display: grid;
+  gap: 8pt;
+  margin: 0 0 16pt;
+}
+.stack-item {
+  display: grid;
+  grid-template-columns: 36pt 1fr;
+  gap: 10pt;
+  align-items: center;
+  border: 1px solid var(--yg-border);
+  border-radius: var(--yg-radius);
+  padding: 10pt 12pt;
+  background: var(--yg-panel);
+}
+.stack-item .idx {
+  width: 28pt;
+  height: 28pt;
+  border-radius: 50%;
+  background: var(--yg-red);
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stack-item .t { font-weight: 700; color: #fff; font-size: 10.5pt; margin: 0 0 2pt; }
+.stack-item .d { margin: 0; font-size: 8.5pt; color: var(--yg-muted); }
+</style>
+</head>
+<body>
+
+<section class="page cover" data-document-role="page" data-label="Cover">
+  
+<div class="cover-editorial">
+  <div class="cover-top">
+    <p class="eyebrow">Starter Guide</p>
+    <h1 class="cover-headline">Clarity before<br/>more tactics.</h1>
+    <div class="cover-rule"></div>
+    <p class="cover-product">The 3B Guide</p>
+    <p class="cover-sub">For coach-owners, consultants, and practice-builders who need capacity before more tactics.</p>
+  </div>
+
+  <div class="cover-hero">
+    <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3B identity stack">
+      <circle cx="260" cy="150" r="140" fill="#0d0d0d"/>
+      <circle cx="260" cy="150" r="124" fill="none" stroke="#2a2a2a" stroke-width="1.25"/>
+      <circle cx="260" cy="150" r="90" fill="none" stroke="#4a4a4a" stroke-width="1.75"/>
+      <circle cx="260" cy="150" r="54" fill="none" stroke="#8a8a8a" stroke-width="2.25"/>
+      <circle cx="260" cy="150" r="26" fill="#FF0000"/>
+      <text x="260" y="156" text-anchor="middle" fill="#fff" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="17">3B</text>
+    </svg>
+    <ul class="cover-pillars-pro">
+      <li class="core"><span class="idx">01</span><span class="name">Be You, The Real You</span></li>
+      <li><span class="idx">02</span><span class="name">Be Your Real Boss</span></li>
+      <li><span class="idx">03</span><span class="name">Be Your Own Limits</span></li>
+    </ul>
+  </div>
+
+  <div class="cover-foot">
+    <div>
+      <p class="cover-author">Yann Gabioud</p>
+      <p class="cover-role">Mental trainer · <a class="plain" href="https://yanngabioud.com">yanngabioud.com</a></p>
+    </div>
+    <p class="cover-foot-mark">Starter Map · 2026<br/>Identity stack · tactics last</p>
+  </div>
+</div>
+
+</section>
+
+<section class="page chapter" data-document-role="page" data-label="For whom">
+  
+<div class="chapter-head">
+  <p class="brief-tag">Filter · who this is for</p>
+  <h2 class="section">For whom (and not)</h2>
+</div>
+
+  <table>
+<thead><tr><th>Yes — this guide</th><th>No — different door</th></tr></thead><tbody>
+<tr><td><strong>Coach-owner</strong> · consultant · practice-builder who <em>is</em> the business</td><td><strong>larger-company leader (PME)</strong> with org / team complexity → company/org diagnostics</td></tr>
+<tr><td>Solo or <strong>micro-practice</strong> (TPE-scale) (you sell expertise for a living)</td><td>Corporate / HR / enterprise Club seats</td></tr>
+<tr><td>Fully booked or building — and quietly at a <strong>capacity ceiling</strong></td><td>Exigent founder ready for high-stakes 1:1 only → <a href="https://yanngabioud.com/coaching">yanngabioud.com/coaching</a></td></tr>
+<tr><td>Wants a <strong>Mental Gym</strong> (group arena), not another tactics course</td><td>Information junkie collecting frameworks without reps</td></tr>
+</tbody></table>
+<p>You are not “too small.” You are not a larger company. You are the athlete of a one-person (or micro) practice — and the tactics pile is already loud enough.</p>
+  
+<div class="chapter-head">
+  <p class="brief-tag">Sitting contract</p>
+  <h2 class="section">How to use this guide</h2>
+</div>
+
+  <p>Read once. Do the three drills. Then choose a door.</p>
+<table>
+<thead><tr><th>Pass</th><th>Time</th><th>Outcome</th></tr></thead><tbody>
+<tr><td><strong>Read</strong></td><td>25–35 min</td><td>See the architecture before the tactics pile</td></tr>
+<tr><td><strong>Drill 1</strong></td><td>15 min</td><td>Self-audit — who is performing whom</td></tr>
+<tr><td><strong>Drill 2</strong></td><td>20 min</td><td>One Battle + one 72h move</td></tr>
+<tr><td><strong>Drill 3</strong></td><td>15 min</td><td>One exposure past the freeze story</td></tr>
+<tr><td><strong>Door</strong></td><td>2 min</td><td>Club · essays · or stop with dignity</td></tr>
+</tbody></table>
+<h3>Skim map (if you only have twenty minutes)</h3>
+<div class="keep-together"><ol><li><strong>For whom</strong> — confirm this door is yours.</li><li><strong>3B in one breath</strong> — install the OS name.</li><li><strong>One drill only</strong> — pick the pillar that hurts most today.</li><li><strong>Your door</strong> — Club, essays, or stop with dignity.</li></ol></div>
+<p>This is a <strong>starter map</strong> of the 3B Method — not essays, not a membership handbook, not a tactics dump. One clearer self-definition, one owned ceiling, one trained edge = the guide did its job.</p>
+</section>
+
+<section class="page chapter" data-document-role="page" data-label="Clarity before tactics">
+  
+<div class="chapter-head">
+  <p class="brief-tag">Capacity · architecture</p>
+  <h2 class="section">1. Clarity before more tactics</h2>
+</div>
+
+  
+<div class="dual-row keep-together">
+  <div class="dual-card warn">
+    <p class="kicker">Passive tactics diet</p>
+    <h4>More systems. Same ceiling.</h4>
+    <p>Funnels · certificates · borrowed routines. Cognitive load rises. Capacity stays flat.</p>
+  </div>
+  <div class="dual-card sys">
+    <p class="kicker">Systemized identity OS</p>
+    <h4>Clarity before more tactics.</h4>
+    <p>Clarify · Decide · Execute — three pillars trained as one operating system.</p>
+  </div>
+</div>
+
+  
+<div class="metric-row keep-together">
+  <div class="metric-card"><p class="num">3</p><p class="lab">Pillars</p><p class="sub">Identity OS · not tip pile</p></div>
+  <div class="metric-card"><p class="num">50</p><p class="lab">Minutes</p><p class="sub">Read + three drills</p></div>
+  <div class="metric-card"><p class="num">1</p><p class="lab">Primary door</p><p class="sub">Club Mental Gym</p></div>
+</div>
+
+  
+<div class="stack-3 keep-together">
+  <div class="stack-item"><div class="idx">1</div><div><p class="t">Be You, The Real You</p><p class="d">Core beliefs · costume off · congruence</p></div></div>
+  <div class="stack-item"><div class="idx">2</div><div><p class="t">Be Your Real Boss</p><p class="d">Agency · Battle · 72h execution</p></div></div>
+  <div class="stack-item"><div class="idx">3</div><div><p class="t">Be Your Own Limits</p><p class="d">Freeze story · exposure · edge</p></div></div>
+</div>
+
+  <p>It is Tuesday, 16:40. The last client left ten minutes ago. Your calendar looks full. Your chest feels empty. You open another tab for another tactic — funnel, certificate, morning routine — and the borrowed self whispers that one more system will finally make the ceiling rise. It will not. The pile grows. The ceiling stays.</p>
+<p>Coach-owners rarely starve for ideas. They starve for <strong>capacity under client load</strong>: clarify who you are beyond the title, decide without theatre, execute when polish wants to replace reps.</p>
+<p><strong>Your business cannot outrun your personal capacity.</strong> Soft wellness sells calm without result. Hard hustle sells output and burns the operator. The signature is the same: drained by clients, anxious about rates, decision-fatigued by late afternoon. That is not a skills gap. Capacity is trainable.</p>
+<p><strong>The 3B Method</strong> is an identity operating system — three layers you train together, not a ladder you finish.</p>
+<h3>3B in one breath</h3>
+<div class="keep-together"><table>
+<thead><tr><th>Verb</th><th>Pillar</th><th>Job</th></tr></thead><tbody>
+<tr><td><strong>Clarify</strong></td><td>Be You, The Real You</td><td>Name who you are when performance drops the mask</td></tr>
+<tr><td><strong>Decide</strong></td><td>Be Your Real Boss</td><td>Reclaim the cockpit — discipline, time, and standards</td></tr>
+<tr><td><strong>Execute</strong></td><td>Be Your Own Limits</td><td>Train past the story that freezes the body</td></tr>
+</tbody></table></div>
+<p>If you can retell that table without notes, the Education beat landed.</p>
+<h3>How the three pillars work together</h3>
+<p>Each pillar shows up inside the others. Costume off without a Battle becomes journaling. Battles without exposure become polish theatre. Exposure without a real self becomes stunt work.</p>
+<div class="keep-together"><table>
+<thead><tr><th>Pillar</th><th>Cures</th></tr></thead><tbody>
+<tr><td><strong>Be You, The Real You</strong></td><td>Performing a borrowed self</td></tr>
+<tr><td><strong>Be Your Real Boss</strong></td><td>Living under someone else’s calendar</td></tr>
+<tr><td><strong>Be Your Own Limits</strong></td><td>Freezing inside an unaudited story</td></tr>
+</tbody></table></div>
+<p><strong>Operating rule:</strong> every tactic you adopt must still fit who you actually are. If it only works as costume, drop it.</p>
+</section>
+
+<section class="page chapter pillar-page" data-document-role="page" data-label="Be You">
+  <div class="pillar-lead">
+  
+<div class="pillar-banner keep-together">
+  <p class="num">01</p>
+  <div>
+    <p class="ptitle">Be You, The Real You</p>
+    <p class="psub">Identity before the costume.</p>
+  </div>
+</div>
+
+  <h3>The problem: the borrowed self</h3>
+<p>Most high performers are excellent actors. They can run a meeting, close a deal, and post authority content while a quieter self watches from the wings — the self that never consented to the role.</p>
+<p>Borrowed selves come from titles the market handed you, success scripts that calcified, and audience expectations you never audited. As long as you accept outside definitions, you sit in <strong>someone else’s cockpit</strong>.</p>
+<h3>Mechanism: you name yourself</h3>
+<p>Stop letting the market write your job description. You choose the title, the standard, and the value you stand for.</p>
+<div class="keep-together"><table>
+<thead><tr><th>Step</th><th>Move</th></tr></thead><tbody>
+<tr><td><strong>1. Disavow</strong></td><td>List labels that shrink you</td></tr>
+<tr><td><strong>2. Rename</strong></td><td>Name yourself by what you change for clients — not the inherited job title</td></tr>
+<tr><td><strong>3. Embody</strong></td><td>Live the new definition until the world treats it as fact</td></tr>
+</tbody></table></div>
+<p>Mindset is not a mood. It is the load-bearing layer under strategy. When identity is unclear, every tactic becomes cosplay.</p>
+  </div>
+  <div class="sheet"><div class="sheet-head"><p class="sheet-label">Worksheet · timeboxed</p><p class="sheet-digital">Copy into Notes / Obsidian / paper — format secondary to the timebox.</p><h3 class="drill">Drill 1 — Self-audit worksheet (15 minutes)</h3>
+<p><strong>Timebox:</strong> 15 minutes. No polishing. <strong>A. Borrowed labels (5 min)</strong></p></div>
+<p>Write five labels other people (or your feed) use for you. Circle any you did not choose.</p>
+<table class="worksheet">
+<thead><tr><th>#</th><th>Label</th><th>Chosen by me? Y/N</th><th>Keep / Rewrite / Drop</th></tr></thead><tbody>
+<tr><td>1</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td>2</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td>3</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td>4</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td>5</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+</tbody></table>
+<div class="sheet-block"><p><strong>B. My definition (5 min)</strong></p>
+<p>Complete in one sentence each:</p>
+<div class="keep-together"><ul><li><strong>I am…</strong> (function, not job title)</li><li><strong>I refuse to be…</strong></li><li><strong>My standard this quarter is…</strong></li></ul></div>
+</div><div class="sheet-block"><p><strong>C. Congruence check (5 min)</strong></p>
+<p>Name one place this week where what you think, say, and do already match — and one place they split.</p>
+<table class="worksheet">
+<thead><tr><th>Match</th><th>Split</th></tr></thead><tbody>
+<tr><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+</tbody></table>
+</div><p class="success-signal"><strong>Success signal:</strong> You can say your new one-sentence definition out loud without laughing it off.</p>
+<p class="micro-commit"><strong>Micro-commitment (optional):</strong> Write that one-sentence definition and send it to one person who will not let you soften it.</p></div>
+</section>
+
+<section class="page chapter pillar-page" data-document-role="page" data-label="Be Your Real Boss">
+  <div class="pillar-lead">
+  
+<div class="pillar-banner keep-together">
+  <p class="num">02</p>
+  <div>
+    <p class="ptitle">Be Your Real Boss</p>
+    <p class="psub">Own the cockpit — one Battle, one 72h move.</p>
+  </div>
+</div>
+
+  <h3>The problem: the unmanaged ceiling</h3>
+<p>You can be talented and still work for an invisible boss: urgency, other people’s priorities, the next shiny system, the fear of looking unfinished.</p>
+<p><strong>Be Your Real Boss</strong> is ownership of <strong>discipline, decisions, and time</strong> — not hustle theatre.</p>
+<h3>Mechanism: one Battle per week</h3>
+<p>Athletes train inside a <strong>week frame</strong>. <strong>Battle of the week</strong> = one Wildly Important Goal for seven days. Daily actions are <strong>reps</strong>, not new Battles.</p>
+<div class="keep-together"><table>
+<thead><tr><th>Layer</th><th>Job</th></tr></thead><tbody>
+<tr><td><strong>Week Battle</strong></td><td>The score — one WIG for seven days</td></tr>
+<tr><td><strong>Daily rep</strong></td><td>Evidence that the Battle is alive in the body</td></tr>
+<tr><td><strong>Review</strong></td><td>Judge the week with honesty — no backfilled myths</td></tr>
+</tbody></table></div>
+<p>Before you add work, ask: Does this serve <strong>this week’s Battle</strong>? Am I choosing this — or performing availability? What is the <strong>smallest irreversible move</strong> in 72 hours?</p>
+  </div>
+  <div class="sheet"><div class="sheet-head"><p class="sheet-label">Worksheet · timeboxed</p><p class="sheet-digital">Copy into Notes / Obsidian / paper — format secondary to the timebox.</p><h3 class="drill">Drill 2 — Battle + 72h action worksheet (20 minutes)</h3>
+<p><strong>Timebox:</strong> 20 minutes. Pick one Battle. Protect it. <strong>A. Name the Battle (5 min)</strong></p></div>
+<p>This week’s Battle (one sentence, measurable):</p>
+<div class="write-line"></div>
+<p>Why it matters to the entrepreneur I am becoming:</p>
+<div class="write-line"></div>
+<div class="sheet-block"><p><strong>B. Lead-measure reps (5 min)</strong></p>
+<p>List 2–4 body-level reps that prove the Battle (not vague “work on X”).</p>
+<table class="worksheet">
+<thead><tr><th>Day</th><th>Rep (observable)</th><th>Done?</th></tr></thead><tbody>
+<tr><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+<tr><td class="write">&nbsp;</td><td class="write">&nbsp;</td><td class="write">&nbsp;</td></tr>
+</tbody></table>
+</div><div class="sheet-block"><p><strong>C. 72-hour irreversible move (10 min)</strong></p>
+<table class="worksheet">
+<thead><tr><th>Field</th><th>Your answer</th></tr></thead><tbody>
+<tr><td><strong>Move</strong></td><td class="write">&nbsp;</td></tr>
+<tr><td><strong>Deadline</strong></td><td>Within 72 hours of now</td></tr>
+<tr><td><strong>Done looks like</strong></td><td class="write">&nbsp;</td></tr>
+<tr><td><strong>Who witnesses</strong> (optional)</td><td class="write">&nbsp;</td></tr>
+<tr><td><strong>What I will not do instead</strong></td><td class="write">&nbsp;</td></tr>
+</tbody></table>
+</div><p class="success-signal"><strong>Success signal:</strong> The move is calendar-blocked and binary — done or not. No “almost.”</p></div>
+</section>
+
+<section class="page chapter pillar-page" data-document-role="page" data-label="Be Your Own Limits">
+  <div class="pillar-lead">
+  
+<div class="pillar-banner keep-together">
+  <p class="num">03</p>
+  <div>
+    <p class="ptitle">Be Your Own Limits</p>
+    <p class="psub">Train past the freeze story.</p>
+  </div>
+</div>
+
+  <h3>The problem: the freeze story</h3>
+<p>Limits feel like facts. Many are <strong>stories</strong> — old sentences that once protected you and now freeze the next rep.</p>
+<p>“I’m not ready.” “I need one more pass.” “If I show the unfinished work, I lose authority.”</p>
+<p><strong>Be Your Own Limits</strong> means choosing limits on purpose, then training past them — like an athlete expands capacity in the gym.</p>
+<h3>Mechanism: ship the move, not the polish</h3>
+<p>The trap is polishing the system, the deck, the vault, the brand — instead of shipping the one human move the week actually requires. Stop decorating. Send the unfinished thing.</p>
+<p>When flinch invites polish: name what the body wants to avoid → name the role that ships anyway → ship <strong>one</strong> move (filmed, spoken, sent, or left-the-house) — then stop.</p>
+  </div>
+  <div class="sheet"><div class="sheet-head"><p class="sheet-label">Worksheet · timeboxed</p><p class="sheet-digital">Copy into Notes / Obsidian / paper — format secondary to the timebox.</p><h3 class="drill">Drill 3 — Exposure past the freeze story (15 minutes)</h3>
+<p><strong>Timebox:</strong> 15 minutes planning + same-day execution window. <strong>A. The freeze story (5 min)</strong></p></div>
+<p>Write the sentence that stops you (exact words):</p>
+<div class="write-line"></div>
+<p>Where it shows up in the body (chest, jaw, scroll urge…):</p>
+<div class="write-line"></div>
+<div class="sheet-block"><p><strong>B. The exposure (5 min)</strong></p>
+<p>Design one exposure that is <strong>safe enough to survive</strong> and <strong>hard enough to matter</strong>.</p>
+<table class="worksheet">
+<thead><tr><th>Field</th><th>Answer</th></tr></thead><tbody>
+<tr><td><strong>Exposure</strong></td><td class="write">&nbsp;</td></tr>
+<tr><td><strong>Duration</strong></td><td>≤ 30 minutes</td></tr>
+<tr><td><strong>Audience</strong></td><td>None / one person / public</td></tr>
+<tr><td><strong>Role name</strong> (optional)</td><td class="write">&nbsp;</td></tr>
+<tr><td><strong>Done looks like</strong></td><td class="write">&nbsp;</td></tr>
+</tbody></table>
+</div><div class="sheet-block"><p><strong>C. After-action (5 min, same day)</strong></p>
+<table class="worksheet">
+<thead><tr><th>Prompt</th><th>Note</th></tr></thead><tbody>
+<tr><td>What happened vs the story</td><td class="write">&nbsp;</td></tr>
+<tr><td>What capacity expanded 1%</td><td class="write">&nbsp;</td></tr>
+<tr><td>Next week’s slightly harder exposure</td><td class="write">&nbsp;</td></tr>
+</tbody></table>
+</div><p class="success-signal"><strong>Success signal:</strong> You completed the exposure the same day you designed it. Incomplete plans do not count.</p></div>
+  <div class="felt-gap keep-together"><h3>After the three drills — map vs gym</h3><p>You just ran Clarify · Decide · Execute once, alone. That installs the map. It does not install the reflex.</p><p>Alone, the week will invite polish again. In the gym, the same muscles get weekly reps with witnesses — someone hears the freeze story, designs the exposure with you, and asks seventy-two hours later: sent, or not. The drills prove you can move. The Club is where the move becomes a practice.</p></div>
+</section>
+
+<section class="page chapter" data-document-role="page" data-label="Authority and Arena">
+  <div class="authority-lead">
+  
+<div class="chapter-head">
+  <p class="brief-tag">Trajectory · no fabricated social proof</p>
+  <h2 class="section">6–7. Authority + Arena</h2>
+</div>
+
+  
+<div class="metric-row keep-together">
+  <div class="metric-card"><p class="num">~2k</p><p class="lab">Coaching reps</p><p class="sub">Conversations that shaped the craft</p></div>
+  <div class="metric-card"><p class="num">20+</p><p class="lab">Company formations</p><p class="sub">Electrician → Life Designer path</p></div>
+  <div class="metric-card"><p class="num muted-num">0</p><p class="lab">Fake quotes</p><p class="sub">Proof ships when sealed — not invented</p></div>
+</div>
+
+  </div>
+  <p><strong>Mental trainer and strategist for ambitious entrepreneurs.</strong> Club voice: <strong>Mental Gym for coaches, consultants, and practice-builders.</strong></p>
+<div class="keep-together"><table>
+<thead><tr><th>Proof line</th><th>Detail</th></tr></thead><tbody>
+<tr><td><strong>Craft path</strong></td><td>Federal Master Electrician Installer → twenty-plus company formations → ~2000 coaching conversations → Life Designer</td></tr>
+<tr><td><strong>Credentials</strong></td><td>Lead Coach experience at Paradox · Coach Diploma (Geneva) · NLP Practitioner</td></tr>
+<tr><td><strong>Method</strong></td><td>3B Method + deliberate practice · capacity before more tactics</td></tr>
+</tbody></table></div>
+<p>Named client quotes ship when sealed. Until then, trust the <strong>architecture</strong>, the <strong>drills</strong>, and the <strong>trajectory</strong> — not fabricated social proof.</p>
+  <p>Coach-owners often train alone and call it freedom. Sometimes that is <strong>unwitnessed drift</strong>.</p>
+<p><strong>Yann’s Club</strong> is a Shared Arena: live Mental Gym sessions, drills, replays — training, not webinar theatre. You remain the athlete of your own practice.</p>
+<h3>What training looks like this week</h3>
+<p>Wednesday, 08:00. Mental Gym — Mon / Wed / Fri, one hour, Telegram plus replay. One member names a freeze story: rate raise delayed three months. The room runs a fifteen-minute exposure, then a 72-hour binary: sent, or not.</p>
+<p>This guide is the <strong>map</strong>. The Club is the <strong>gym</strong>. Membership is paid. Essays live on Substack — a different surface.</p>
+</section>
+
+<section class="page cta-page" data-document-role="page" data-label="Your door">
+  
+<div class="chapter-head">
+  <p class="brief-tag">Primary path · capacity before reach</p>
+  <h2 class="section">8. Choose deliberately</h2>
+</div>
+
+  <p>You now have architecture and three drills. Choose deliberately.</p>
+<h3>Send this to one stuck peer</h3>
+<p>If one coach-owner in your circle is drowning in tactics and calling it strategy, forward this PDF: <em>“Do Drill 1 before you buy another system.”</em></p>
+<table>
+<thead><tr><th>Door</th><th>For whom</th><th>URL</th></tr></thead><tbody>
+<tr><td><strong>Yann’s Club — Mental Gym</strong></td><td>Ready for weekly arena training</td><td><a href="https://yanngabioud.com/club">yanngabioud.com/club</a></td></tr>
+<tr><td><strong>Life Performances (essays)</strong></td><td>Long-form clarity without membership</td><td><a href="https://newsletter.yanngabioud.com">newsletter.yanngabioud.com</a></td></tr>
+<tr><td><strong>1:1 coaching</strong></td><td>Ceiling is personal / high-stakes — not group</td><td><a href="https://yanngabioud.com/coaching">yanngabioud.com/coaching</a></td></tr>
+<tr><td><strong>Stop here</strong></td><td>The three drills are enough for now</td><td>No CTA — keep the work</td></tr>
+</tbody></table>
+  <div class="cta-box keep-together hud-frame">
+    <a class="cta-hit" href="https://yanngabioud.com/club">
+    <p class="brief-tag">Emotional peak · Club door</p>
+    <p class="big">The map is free.<br/>The gym is the Club.</p>
+    <p class="cta-support">You ran the drills once. The gym is weekly reps with witnesses. Essays and 1:1 stay secondary doors above — stop with dignity remains valid.</p>
+    <p class="url">→ yanngabioud.com/club</p>
+    </a>
+  </div>
+  <div class="about-block">
+  <h3>About the author</h3>
+<p><strong>Yann Gabioud</strong> — mental trainer and strategist for ambitious entrepreneurs.</p>
+<p>Clarify · decide · execute — with the <strong>3B Method</strong>.</p>
+<p>Federal Master Electrician Installer → twenty-plus company formations → roughly two thousand coaching conversations → Life Designer.</p>
+<p>Your business cannot outrun your personal capacity. The map is free. The gym is the Club.</p>
+<p><strong>Be You, The Real You · Be Your Real Boss · Be Your Own Limits</strong></p>
+<p><a href="https://yanngabioud.com">yanngabioud.com</a> · <a href="https://x.com/YannGabioud">@YannGabioud</a> · Starter Map · 2026</p>
+  </div>
+</section>
+
+</body>
+</html>
