@@ -15,16 +15,16 @@
     color: #FFFFFF;
   }
   .title {
-    position: absolute; left: 72px; top: 64px; right: 72px;
+    position: absolute; left: 72px; top: 56px; right: 72px;
     margin: 0; padding: 0;
-    font-size: 56px; font-weight: 700; line-height: 1.05;
+    font-size: 58px; font-weight: 700; line-height: 1.05;
     letter-spacing: 0.02em; text-transform: uppercase;
     text-align: left;
   }
   .subtitle {
-    position: absolute; left: 72px; top: 140px; right: 72px;
+    position: absolute; left: 72px; top: 136px; right: 72px;
     margin: 0; padding: 0;
-    font-size: 28px; font-weight: 400; line-height: 1.25;
+    font-size: 30px; font-weight: 400; line-height: 1.25;
     color: #C8C8C8; text-align: left;
   }
   .chart-frame {
@@ -38,27 +38,27 @@
     display: block;
   }
   .label-red {
-    position: absolute; left: 108px; top: 280px;
+    position: absolute; left: 108px; top: 270px;
     margin: 0; padding: 0;
-    font-size: 26px; font-weight: 700; line-height: 1.2;
-    color: #FF0000; text-align: left; max-width: 420px;
+    font-size: 32px; font-weight: 700; line-height: 1.2;
+    color: #FF0000; text-align: left; max-width: 440px;
   }
   .label-rise {
-    position: absolute; left: 480px; top: 420px;
+    position: absolute; left: 460px; top: 400px;
     margin: 0; padding: 0;
-    font-size: 26px; font-weight: 500; line-height: 1.2;
-    color: #E0E0E0; text-align: left; max-width: 480px;
+    font-size: 32px; font-weight: 500; line-height: 1.2;
+    color: #E0E0E0; text-align: left; max-width: 500px;
   }
   .annotation {
-    position: absolute; left: 72px; top: 1040px; right: 72px;
+    position: absolute; left: 72px; top: 1030px; right: 72px;
     margin: 0; padding: 0;
-    font-size: 26px; font-weight: 400; line-height: 1.35;
+    font-size: 28px; font-weight: 400; line-height: 1.35;
     color: #F0F0F0; text-align: left;
   }
   .chrome {
-    position: absolute; left: 72px; top: 1260px; right: 72px;
+    position: absolute; left: 72px; top: 1250px; right: 72px;
     margin: 0; padding: 0;
-    font-size: 22px; font-weight: 400; line-height: 1.2;
+    font-size: 26px; font-weight: 400; line-height: 1.2;
     color: #FFFFFF; text-align: left;
   }
 </style>
@@ -70,8 +70,9 @@
     1. Separate text nodes → Canva editable layers
     2. SVG grey wave first, red wave second (red on top — no picture-on-picture fill stack)
     3. Native 1080×1350 (LinkedIn framework) — no 900×1080 crop mismatch
-    4. Larger type (title 56 / labels 26 / annotation 26 / chrome 22)
+    4. Larger type (title 58 / labels 32 / annotation 28 / chrome 26)
     5. Single chrome line only (no top identity box + no duplicate footer)
+    Revise 2026-08-18: type bump after autofeedback polish request.
   -->
   <div class="page"
        data-document-role="page"
