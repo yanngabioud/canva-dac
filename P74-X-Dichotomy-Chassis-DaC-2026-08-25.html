@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>CANDIDATE · P74 X Dichotomy Chassis · 1600×900 · Helvetica · swiss-editorial-split</title>
+<style>
+  /*
+   * SSoT: P74-X-Dichotomy-Chassis-Brief-2026-08-05 · P130/P145 Swiss tokens
+   * Size: 1600×900 (X landscape)
+   * Pattern: swiss-editorial-split — 50/50 white columns · #FF0000 hairline divider
+   * Anti-match: no photos · no fog · no half-panel fills · no Anton/legacy #F93822
+   */
+  :root {
+    --bg: #FFFFFF;
+    --ink: #000000;
+    --accent: #FF0000;
+    --w: 1600px;
+    --h: 900px;
+    --mid: 800px;
+    --pad-x: 72px;
+    --pad-y: 64px;
+  }
+  html, body { margin: 0; padding: 0; background: #111; }
+  .page {
+    width: var(--w); height: var(--h); background: var(--bg);
+    position: relative; overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  .title {
+    position: absolute;
+    left: var(--pad-x); top: 48px;
+    margin: 0; padding: 0;
+    font-size: 56px; font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 1456px;
+  }
+  .divider {
+    position: absolute;
+    left: calc(var(--mid) - 1.5px);
+    top: 140px; bottom: 96px;
+    width: 3px; background: var(--accent);
+  }
+  .col {
+    position: absolute;
+    top: 168px;
+    width: calc(var(--mid) - var(--pad-x) - 24px);
+  }
+  .col.left { left: var(--pad-x); }
+  .col.right { left: calc(var(--mid) + 24px); }
+  .label {
+    margin: 0 0 20px 0; padding: 0;
+    font-size: 42px; font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-transform: none;
+  }
+  .body {
+    margin: 0; padding: 0;
+    font-size: 28px; font-weight: 400; line-height: 1.25;
+    max-width: 620px;
+  }
+  .chrome {
+    position: absolute;
+    left: var(--pad-x); right: var(--pad-x); bottom: 36px;
+    margin: 0; padding: 0;
+    font-size: 16px; font-weight: 400; line-height: 1.2;
+    letter-spacing: 0.02em;
+    display: flex; justify-content: space-between; gap: 24px;
+  }
+  .chrome span { white-space: nowrap; }
+</style>
+</head>
+<body>
+  <div class="page"
+       data-document-role="page"
+       data-label="P74 X Dichotomy Chassis 1600x900 Helvetica">
+    <h1 class="title">Clarity precedes growth</h1>
+    <div class="divider" aria-hidden="true"></div>
+    <div class="col left">
+      <p class="label">Fog week</p>
+      <p class="body">Full calendar · no direction</p>
+    </div>
+    <div class="col right">
+      <p class="label">Clean decision</p>
+      <p class="body">One choice beats ten tactics</p>
+    </div>
+    <p class="chrome">
+      <span>Yann Gabioud · Mental trainer</span>
+      <span>@YannGabioud · yanngabioud.com</span>
+    </p>
+  </div>
+</body>
+</html>
