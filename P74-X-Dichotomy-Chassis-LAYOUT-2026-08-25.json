@@ -1,0 +1,24 @@
+{
+  "seed": "MY-SEED-X-DICHOTOMY-V1",
+  "chassis": "swiss-editorial-split",
+  "surface": "x_dichotomy",
+  "width": 1600,
+  "height": 900,
+  "tokens": {
+    "bg": "#FFFFFF",
+    "ink": "#000000",
+    "accent": "#FF0000",
+    "type": "Helvetica Neue / Helvetica"
+  },
+  "slots": {
+    "TITLE": "Clarity precedes growth",
+    "LEFT_LABEL": "Fog week",
+    "LEFT_BODY": "Full calendar · no direction",
+    "RIGHT_LABEL": "Clean decision",
+    "RIGHT_BODY": "One choice beats ten tactics",
+    "CHROME": "Yann Gabioud · Mental trainer · @YannGabioud · yanngabioud.com"
+  },
+  "anti_match": ["A01", "A03", "A05", "A08", "quote-glyph", "half-panel-fill"],
+  "html": "Systems/Operator/logs/P74-X-Dichotomy-Chassis-DaC-2026-08-25.html",
+  "brief": "Systems/Operator/logs/P74-X-Dichotomy-Chassis-Brief-2026-08-05.md"
+}
