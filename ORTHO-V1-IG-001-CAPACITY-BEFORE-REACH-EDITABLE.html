@@ -2,216 +2,155 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>CANDIDATE · DaC · Ortho-V1 · Instagram · 1080×1350 · Capacity Before Reach · IG-001 v2.2 · 2026-08-26</title>
+<title>CANDIDATE · DaC · Ortho-V1 · Instagram · 1080×1350 · Capacity Before Reach · IG-001 v2.3 · 2026-08-26</title>
 <style>
   html, body { margin: 0; padding: 0; background: #000; }
   .page {
-    width: 1080px;
-    height: 1350px;
-    background: #000000;
-    position: relative;
-    overflow: hidden;
+    width: 1080px; height: 1350px;
+    background: #000; position: relative; overflow: hidden;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #FFFFFF;
-    page-break-after: always;
+    color: #fff; page-break-after: always;
   }
-  /*
-    IG-001 v2.2 · scroll-stop type tier
-    SOP: My Instagram Carousel Typography SOP — v2.2 floors (2026-08-26)
-    iPhone @36% scale: headline ~33px on device · chrome ~14px min
-  */
-  .title {
-    position: absolute; left: 72px; top: 120px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 88px; font-weight: 700; line-height: 1.02;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    text-align: left;
-    box-sizing: border-box;
-  }
-  .subtitle {
-    position: absolute; left: 72px; top: 300px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 48px; font-weight: 400; line-height: 1.2;
-    color: #C8C8C8; text-align: left;
-    box-sizing: border-box;
-  }
-  .chart-frame {
-    position: absolute; left: 72px; top: 380px;
-    width: 936px; height: 480px;
-    border: 2px solid #333333; border-radius: 24px;
-    overflow: hidden; background: #000000;
-  }
-  .chart-frame svg {
-    position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-    display: block;
-  }
-  .label-red {
-    position: absolute; left: 96px; top: 410px;
-    margin: 0; padding: 0;
-    font-size: 44px; font-weight: 700; line-height: 1.12;
-    color: #FF0000; text-align: left; max-width: 460px;
-  }
-  .label-rise {
-    position: absolute; left: 460px; top: 520px;
-    margin: 0; padding: 0;
-    font-size: 44px; font-weight: 500; line-height: 1.12;
-    color: #E0E0E0; text-align: left; max-width: 520px;
-  }
-  .annotation {
-    position: absolute; left: 72px; top: 900px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 48px; font-weight: 400; line-height: 1.28;
-    color: #F0F0F0; text-align: left;
-    box-sizing: border-box;
-  }
+  /* SOP: My Instagram Carousel Typography SOP v2.3 — scroll-stop + layout modes */
   .chrome {
     position: absolute; left: 72px; top: 1140px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 40px; font-weight: 400; line-height: 1.2;
-    color: #FFFFFF; text-align: left;
-    box-sizing: border-box;
+    margin: 0; font-size: 40px; font-weight: 400; line-height: 1.2;
   }
-  /* Typographic slides 2–7 */
-  .slide-kicker {
-    position: absolute; left: 72px; top: 160px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 44px; font-weight: 500; letter-spacing: 0.04em;
-    text-transform: uppercase; color: #BBBBBB;
+  /* MODE: MECHANISM — cover only */
+  .page-mech .title {
+    position: absolute; left: 72px; top: 140px; width: 936px;
+    margin: 0; font-size: 88px; font-weight: 700; line-height: 1.02;
+    text-transform: uppercase;
   }
-  .slide-rule {
-    position: absolute; left: 72px; top: 230px;
-    width: 160px; height: 6px; background: #FF0000; margin: 0; padding: 0; border: 0;
+  .page-mech .chart-frame {
+    position: absolute; left: 72px; top: 360px;
+    width: 936px; height: 520px;
+    border: 2px solid #333; border-radius: 24px; overflow: hidden;
   }
-  .slide-body {
-    position: absolute; left: 72px; top: 290px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 92px; font-weight: 700; line-height: 1.08;
-    letter-spacing: 0; text-align: left;
-    box-sizing: border-box;
+  .page-mech .chart-frame svg { width: 100%; height: 100%; display: block; }
+  .page-mech .label-red {
+    position: absolute; left: 96px; top: 400px; max-width: 420px;
+    margin: 0; font-size: 48px; font-weight: 700; line-height: 1.1; color: #FF0000;
   }
-  .slide-body.medium {
-    font-size: 80px; font-weight: 500; line-height: 1.12;
+  .page-mech .label-rise {
+    position: absolute; left: 480px; top: 540px; max-width: 500px;
+    margin: 0; font-size: 48px; font-weight: 500; line-height: 1.1; color: #E8E8E8;
   }
-  .slide-support {
-    position: absolute; left: 72px; top: 720px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 52px; font-weight: 400; line-height: 1.28;
-    color: #C8C8C8;
+  /* MODE: TYPE — interior scroll slides (no footer) */
+  .page-type .headline {
+    position: absolute; left: 72px; top: 380px; width: 936px;
+    margin: 0; font-size: 96px; font-weight: 700; line-height: 1.06;
   }
-  /* CTA slide 8 — poster layout · no support line */
-  .page-cta .slide-kicker { top: 200px; font-size: 44px; }
-  .page-cta .slide-rule { top: 270px; }
-  .page-cta .slide-body {
-    top: 340px; font-size: 96px; line-height: 1.06;
+  .page-type .headline.medium {
+    font-size: 84px; font-weight: 500; line-height: 1.1;
   }
-  .page-cta .slide-cta {
+  .page-type .support {
     position: absolute; left: 72px; top: 780px; width: 936px;
-    margin: 0; padding: 0;
-    font-size: 76px; font-weight: 700; line-height: 1.1;
-    color: #FFFFFF;
+    margin: 0; font-size: 52px; font-weight: 400; line-height: 1.28; color: #C8C8C8;
   }
-  .page-cta .chrome { top: 1120px; font-size: 40px; }
-  .slide-cta span.hub { color: #FF0000; }
+  .page-type .accent {
+    position: absolute; left: 72px; top: 280px; width: 936px;
+    margin: 0; font-size: 44px; font-weight: 700; line-height: 1.1;
+    text-transform: uppercase; color: #FF0000; letter-spacing: 0.04em;
+  }
+  /* MODE: SPLIT — slide 4 dichotomy beat */
+  .page-split .headline {
+    position: absolute; left: 72px; top: 340px; width: 936px;
+    margin: 0; font-size: 92px; font-weight: 700; line-height: 1.08;
+  }
+  .page-split .split-bar {
+    position: absolute; left: 72px; top: 620px; width: 936px; height: 8px;
+    background: linear-gradient(90deg, #FF0000 0%, #FF0000 48%, #333 48%, #1a1a1a 100%);
+    border-radius: 4px;
+  }
+  .page-split .split-labels {
+    position: absolute; left: 72px; top: 660px; width: 936px;
+    margin: 0; font-size: 48px; font-weight: 500; line-height: 1.2;
+    display: flex; justify-content: space-between; color: #CCC;
+  }
+  .page-split .split-labels span:first-child { color: #FF0000; font-weight: 700; }
+  /* MODE: CTA — slide 8 */
+  .page-cta .headline {
+    position: absolute; left: 72px; top: 360px; width: 936px;
+    margin: 0; font-size: 96px; font-weight: 700; line-height: 1.06;
+  }
+  .page-cta .hub {
+    position: absolute; left: 72px; top: 760px; width: 936px;
+    margin: 0; font-size: 80px; font-weight: 700; line-height: 1.1; color: #FF0000;
+  }
 </style>
 </head>
 <body>
 
-  <!-- PAGE 1 — Cover -->
-  <div class="page" data-document-role="page" data-label="IG-001 Cover Capacity Before Reach Ortho-V1">
+  <!-- 1 · MECHANISM cover — title + chart only · chrome yes -->
+  <div class="page page-mech" data-document-role="page" data-label="IG-001 v2.3 Cover Mechanism">
     <p class="title">CAPACITY<br/>BEFORE REACH</p>
-    <p class="subtitle">Outreach Theater vs. Life Architecture</p>
     <div class="chart-frame" aria-hidden="true">
-      <svg viewBox="0 0 936 480" xmlns="http://www.w3.org/2000/svg" role="img">
-        <rect width="936" height="480" fill="#000000"/>
+      <svg viewBox="0 0 936 520" xmlns="http://www.w3.org/2000/svg">
+        <rect width="936" height="520" fill="#000"/>
         <g stroke="#1c1c1c" stroke-width="1">
-          <line x1="40" y1="60" x2="896" y2="60"/>
-          <line x1="40" y1="120" x2="896" y2="120"/>
-          <line x1="40" y1="180" x2="896" y2="180"/>
-          <line x1="40" y1="240" x2="896" y2="240"/>
-          <line x1="40" y1="300" x2="896" y2="300"/>
-          <line x1="40" y1="360" x2="896" y2="360"/>
-          <line x1="40" y1="420" x2="896" y2="420"/>
-          <line x1="133" y1="24" x2="133" y2="456"/>
-          <line x1="226" y1="24" x2="226" y2="456"/>
-          <line x1="319" y1="24" x2="319" y2="456"/>
-          <line x1="412" y1="24" x2="412" y2="456"/>
-          <line x1="505" y1="24" x2="505" y2="456"/>
-          <line x1="598" y1="24" x2="598" y2="456"/>
-          <line x1="691" y1="24" x2="691" y2="456"/>
-          <line x1="784" y1="24" x2="784" y2="456"/>
+          <line x1="40" y1="65" x2="896" y2="65"/><line x1="40" y1="130" x2="896" y2="130"/>
+          <line x1="40" y1="195" x2="896" y2="195"/><line x1="40" y1="260" x2="896" y2="260"/>
+          <line x1="40" y1="325" x2="896" y2="325"/><line x1="40" y1="390" x2="896" y2="390"/>
+          <line x1="40" y1="455" x2="896" y2="455"/>
+          <line x1="186" y1="20" x2="186" y2="500"/><line x1="332" y1="20" x2="332" y2="500"/>
+          <line x1="478" y1="20" x2="478" y2="500"/><line x1="624" y1="20" x2="624" y2="500"/>
+          <line x1="770" y1="20" x2="770" y2="500"/>
         </g>
-        <path d="M40,440 C120,430 200,400 280,340 C380,260 480,175 620,115 C720,78 820,70 896,88 L896,456 L40,456 Z" fill="#1a1a1a" stroke="#222222" stroke-width="2"/>
-        <path d="M40,265 C100,95 180,55 280,95 C360,135 420,230 520,310 C600,375 720,420 896,435 L896,456 L40,456 Z" fill="#FF0000"/>
+        <path d="M40,475 C140,465 240,420 340,350 C440,270 560,180 680,120 C780,80 860,72 896,88 L896,500 L40,500 Z" fill="#1a1a1a" stroke="#222" stroke-width="2"/>
+        <path d="M40,280 C110,100 200,60 300,100 C400,150 480,260 580,350 C680,420 780,460 896,475 L896,500 L40,500 Z" fill="#FF0000"/>
       </svg>
     </div>
-    <p class="label-red">Reach-first<br/>Outreach Theater</p>
-    <p class="label-rise">Capacity-first<br/>Life Architecture</p>
-    <p class="annotation">Reach without capacity is theater.<br/>Train the container — then earn the room.</p>
+    <p class="label-red">Reach-first</p>
+    <p class="label-rise">Capacity-first</p>
     <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
   </div>
 
-  <!-- PAGE 2 -->
-  <div class="page" data-document-role="page" data-label="IG-001 Hook Theater">
-    <p class="slide-kicker">Capacity Before Reach</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body">Reach without<br/>capacity is<br/>theater.</p>
-    <p class="slide-support">Motion priced as progress.</p>
-    <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
+  <!-- 2 · TYPE — frame + hook · no chrome -->
+  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Hook">
+    <p class="accent">Outreach Theater vs. Life Architecture</p>
+    <p class="headline">Reach without<br/>capacity is<br/>theater.</p>
+    <p class="support">Motion priced as progress.</p>
   </div>
 
-  <!-- PAGE 3 -->
-  <div class="page" data-document-role="page" data-label="IG-001 Problem Flat Capacity">
-    <p class="slide-kicker">The bottleneck</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body">Activity scales.<br/>Capacity stays flat.</p>
-    <p class="slide-support">Same load limit. Louder feed.</p>
-    <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
+  <!-- 3 · TYPE -->
+  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Bottleneck">
+    <p class="headline">Activity scales.<br/>Capacity stays flat.</p>
+    <p class="support">Same load limit. Louder feed.</p>
   </div>
 
-  <!-- PAGE 4 -->
-  <div class="page" data-document-role="page" data-label="IG-001 Reach Side">
-    <p class="slide-kicker">Reach-first</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body">More posts.<br/>Same bottleneck.</p>
-    <p class="slide-support">Contact before the container holds.</p>
-    <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
+  <!-- 4 · SPLIT mechanism beat -->
+  <div class="page page-split" data-document-role="page" data-label="IG-001 v2.3 Dichotomy">
+    <p class="headline">More posts.<br/>Same bottleneck.</p>
+    <div class="split-bar" aria-hidden="true"></div>
+    <p class="split-labels"><span>Reach-first</span><span>Capacity-first</span></p>
   </div>
 
-  <!-- PAGE 5 -->
-  <div class="page" data-document-role="page" data-label="IG-001 Mechanism Architecture">
-    <p class="slide-kicker">Life Architecture</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body medium">Identity.<br/>Governance.<br/>Practice.</p>
-    <p class="slide-support">For Life Performers under load.</p>
-    <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
+  <!-- 5 · TYPE -->
+  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Architecture">
+    <p class="accent">Life Architecture</p>
+    <p class="headline medium">Identity.<br/>Governance.<br/>Practice.</p>
+    <p class="support">For Life Performers under load.</p>
   </div>
 
-  <!-- PAGE 6 -->
-  <div class="page" data-document-role="page" data-label="IG-001 Protocol Order">
-    <p class="slide-kicker">Order of operations</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body medium">Build the container.<br/>Then scale contact.</p>
-    <p class="slide-support">Capacity before reach.</p>
-    <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
+  <!-- 6 · TYPE -->
+  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Protocol">
+    <p class="headline medium">Build the container.<br/>Then scale contact.</p>
+    <p class="support">Capacity before reach.</p>
   </div>
 
-  <!-- PAGE 7 -->
-  <div class="page" data-document-role="page" data-label="IG-001 Proof Authority">
-    <p class="slide-kicker">Authority</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body medium">What you hold<br/>when the room<br/>looks.</p>
-    <p class="slide-support">Stance already live.</p>
-    <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
+  <!-- 7 · TYPE -->
+  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Authority">
+    <p class="headline medium">What you hold<br/>when the room<br/>looks.</p>
+    <p class="support">Stance already live.</p>
   </div>
 
-  <!-- PAGE 8 — CTA poster -->
-  <div class="page page-cta" data-document-role="page" data-label="IG-001 CTA Hub">
-    <p class="slide-kicker">Start</p>
-    <hr class="slide-rule"/>
-    <p class="slide-body">Architecture<br/>before theater.</p>
-    <p class="slide-cta">→ <span class="hub">yanngabioud.com</span></p>
+  <!-- 8 · CTA · chrome yes -->
+  <div class="page page-cta" data-document-role="page" data-label="IG-001 v2.3 CTA">
+    <p class="headline">Architecture<br/>before theater.</p>
+    <p class="hub">→ yanngabioud.com</p>
     <p class="chrome">Yann Gabioud · @YannGabioud</p>
   </div>
+
 </body>
 </html>
