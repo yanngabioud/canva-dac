@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>CANDIDATE · DaC · Ortho-V1 · Instagram · 1080×1350 · Capacity Before Reach · IG-001 v2.3 · 2026-08-26</title>
+<title>CANDIDATE · DaC · Ortho-V1 · Instagram · 1080×1350 · Capacity Before Reach · IG-001 v2.4 · 2026-08-27</title>
 <style>
   html, body { margin: 0; padding: 0; background: #000; }
   .page {
@@ -11,12 +11,74 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #fff; page-break-after: always;
   }
-  /* SOP: My Instagram Carousel Typography SOP v2.3 — scroll-stop + layout modes */
+  /* Shared — IG v2.4 chrome (slides 1 + 8 only) */
   .chrome {
     position: absolute; left: 72px; top: 1140px; width: 936px;
     margin: 0; font-size: 40px; font-weight: 400; line-height: 1.2;
   }
-  /* MODE: MECHANISM — cover only */
+  /* FACE-HEADER — interior slides 2–7 (+ optional 8) */
+  .face-header {
+    position: absolute; left: 72px; top: 72px; width: 936px; height: 88px;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .face-circle {
+    width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0;
+    background: #1a1a1a; border: 2px solid #333;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 700; color: #888; letter-spacing: -0.02em;
+  }
+  .face-name {
+    margin: 0; font-size: 40px; font-weight: 400; line-height: 1.1; color: #fff;
+  }
+  .slide-index {
+    margin: 0 0 0 auto; font-size: 36px; font-weight: 400; color: #666;
+  }
+  /* KEYWORD-HERO */
+  .setup {
+    position: absolute; left: 72px; top: 420px; width: 936px;
+    margin: 0; font-size: 48px; font-weight: 400; line-height: 1.15; color: #E8E8E8;
+  }
+  .keyword {
+    position: absolute; left: 72px; top: 500px; width: 936px;
+    margin: 0; font-size: 112px; font-weight: 700; line-height: 0.95;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .keyword.medium { font-size: 96px; line-height: 1.0; }
+  .keyword.compact { font-size: 88px; line-height: 1.02; }
+  .support {
+    position: absolute; left: 72px; top: 780px; width: 936px;
+    margin: 0; font-size: 52px; font-weight: 400; line-height: 1.28; color: #C8C8C8;
+  }
+  .frame-accent {
+    position: absolute; left: 72px; top: 200px; width: 936px;
+    margin: 0; font-size: 44px; font-weight: 700; line-height: 1.1;
+    text-transform: uppercase; color: #FF0000; letter-spacing: 0.04em;
+  }
+  /* QUOTE-FORK */
+  .quote-open {
+    position: absolute; left: 72px; top: 340px;
+    margin: 0; font-size: 120px; font-weight: 700; line-height: 1; color: #FF0000;
+  }
+  .quote-close {
+    position: absolute; left: 820px; top: 640px;
+    margin: 0; font-size: 120px; font-weight: 700; line-height: 1; color: #FF0000;
+  }
+  .fork {
+    position: absolute; left: 72px; top: 680px; width: 936px;
+    margin: 0; font-size: 56px; font-weight: 700; line-height: 1.1; color: #FF0000;
+  }
+  /* SWIPE-CUE — interior slides 2–7 */
+  .swipe-cue {
+    position: absolute; right: 72px; bottom: 72px;
+    width: 120px; height: 56px; border: 2px solid #fff; border-radius: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 400; color: #fff;
+  }
+  .swipe-dash {
+    position: absolute; left: 72px; bottom: 100px; width: 720px; height: 0;
+    border-top: 2px dashed #FF0000;
+  }
+  /* MODE: MECHANISM — cover only (slide 1) */
   .page-mech .title {
     position: absolute; left: 72px; top: 140px; width: 936px;
     margin: 0; font-size: 88px; font-weight: 700; line-height: 1.02;
@@ -36,35 +98,14 @@
     position: absolute; left: 480px; top: 540px; max-width: 500px;
     margin: 0; font-size: 48px; font-weight: 500; line-height: 1.1; color: #E8E8E8;
   }
-  /* MODE: TYPE — interior scroll slides (no footer) */
-  .page-type .headline {
-    position: absolute; left: 72px; top: 380px; width: 936px;
-    margin: 0; font-size: 96px; font-weight: 700; line-height: 1.06;
-  }
-  .page-type .headline.medium {
-    font-size: 84px; font-weight: 500; line-height: 1.1;
-  }
-  .page-type .support {
-    position: absolute; left: 72px; top: 780px; width: 936px;
-    margin: 0; font-size: 52px; font-weight: 400; line-height: 1.28; color: #C8C8C8;
-  }
-  .page-type .accent {
-    position: absolute; left: 72px; top: 280px; width: 936px;
-    margin: 0; font-size: 44px; font-weight: 700; line-height: 1.1;
-    text-transform: uppercase; color: #FF0000; letter-spacing: 0.04em;
-  }
-  /* MODE: SPLIT — slide 4 dichotomy beat */
-  .page-split .headline {
-    position: absolute; left: 72px; top: 340px; width: 936px;
-    margin: 0; font-size: 92px; font-weight: 700; line-height: 1.08;
-  }
+  /* MODE: SPLIT — slide 4 dichotomy */
   .page-split .split-bar {
-    position: absolute; left: 72px; top: 620px; width: 936px; height: 8px;
+    position: absolute; left: 72px; top: 720px; width: 936px; height: 8px;
     background: linear-gradient(90deg, #FF0000 0%, #FF0000 48%, #333 48%, #1a1a1a 100%);
     border-radius: 4px;
   }
   .page-split .split-labels {
-    position: absolute; left: 72px; top: 660px; width: 936px;
+    position: absolute; left: 72px; top: 760px; width: 936px;
     margin: 0; font-size: 48px; font-weight: 500; line-height: 1.2;
     display: flex; justify-content: space-between; color: #CCC;
   }
@@ -82,8 +123,8 @@
 </head>
 <body>
 
-  <!-- 1 · MECHANISM cover — title + chart only · chrome yes -->
-  <div class="page page-mech" data-document-role="page" data-label="IG-001 v2.3 Cover Mechanism">
+  <!-- 1 · MECHANISM cover — title + chart · chrome yes · no face -->
+  <div class="page page-mech" data-document-role="page" data-label="IG-001 v2.4 Cover Mechanism">
     <p class="title">CAPACITY<br/>BEFORE REACH</p>
     <div class="chart-frame" aria-hidden="true">
       <svg viewBox="0 0 936 520" xmlns="http://www.w3.org/2000/svg">
@@ -106,47 +147,105 @@
     <p class="chrome">Yann Gabioud · @YannGabioud · yanngabioud.com</p>
   </div>
 
-  <!-- 2 · TYPE — frame + hook · no chrome -->
-  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Hook">
-    <p class="accent">Outreach Theater vs. Life Architecture</p>
-    <p class="headline">Reach without<br/>capacity is<br/>theater.</p>
-    <p class="support">Motion priced as progress.</p>
+  <!-- 2 · KEYWORD-HERO + QUOTE-FORK hook · face header · swipe -->
+  <div class="page" data-document-role="page" data-label="IG-001 v2.4 Hook Theater">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">2 / 8</p>
+    </div>
+    <p class="frame-accent">Outreach Theater vs. Life Architecture</p>
+    <p class="quote-open">“</p>
+    <p class="setup">If you want</p>
+    <p class="keyword">THEATER</p>
+    <p class="fork">→ no</p>
+    <p class="quote-close">”</p>
+    <p class="support">Reach without capacity.</p>
+    <div class="swipe-dash" aria-hidden="true"></div>
+    <div class="swipe-cue" aria-hidden="true">→</div>
   </div>
 
-  <!-- 3 · TYPE -->
-  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Bottleneck">
-    <p class="headline">Activity scales.<br/>Capacity stays flat.</p>
+  <!-- 3 · KEYWORD-HERO · face header · swipe -->
+  <div class="page" data-document-role="page" data-label="IG-001 v2.4 Capacity Flat">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">3 / 8</p>
+    </div>
+    <p class="setup">Activity scales.</p>
+    <p class="keyword medium">CAPACITY<br/>STAYS FLAT</p>
     <p class="support">Same load limit. Louder feed.</p>
+    <div class="swipe-dash" aria-hidden="true"></div>
+    <div class="swipe-cue" aria-hidden="true">→</div>
   </div>
 
-  <!-- 4 · SPLIT mechanism beat -->
-  <div class="page page-split" data-document-role="page" data-label="IG-001 v2.3 Dichotomy">
-    <p class="headline">More posts.<br/>Same bottleneck.</p>
+  <!-- 4 · SPLIT + QUOTE-FORK · face header · swipe -->
+  <div class="page page-split" data-document-role="page" data-label="IG-001 v2.4 Dichotomy">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">4 / 8</p>
+    </div>
+    <p class="quote-open">“</p>
+    <p class="setup">More posts.</p>
+    <p class="keyword compact">BOTTLENECK</p>
+    <p class="fork">→ capacity-first</p>
+    <p class="quote-close">”</p>
     <div class="split-bar" aria-hidden="true"></div>
     <p class="split-labels"><span>Reach-first</span><span>Capacity-first</span></p>
+    <div class="swipe-dash" aria-hidden="true"></div>
+    <div class="swipe-cue" aria-hidden="true">→</div>
   </div>
 
-  <!-- 5 · TYPE -->
-  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Architecture">
-    <p class="accent">Life Architecture</p>
-    <p class="headline medium">Identity.<br/>Governance.<br/>Practice.</p>
+  <!-- 5 · KEYWORD-HERO · face header · swipe -->
+  <div class="page" data-document-role="page" data-label="IG-001 v2.4 Architecture">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">5 / 8</p>
+    </div>
+    <p class="frame-accent">Life Architecture</p>
+    <p class="keyword medium">IDENTITY<br/>GOVERNANCE<br/>PRACTICE</p>
     <p class="support">For Life Performers under load.</p>
+    <div class="swipe-dash" aria-hidden="true"></div>
+    <div class="swipe-cue" aria-hidden="true">→</div>
   </div>
 
-  <!-- 6 · TYPE -->
-  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Protocol">
-    <p class="headline medium">Build the container.<br/>Then scale contact.</p>
+  <!-- 6 · KEYWORD-HERO · face header · swipe -->
+  <div class="page" data-document-role="page" data-label="IG-001 v2.4 Protocol">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">6 / 8</p>
+    </div>
+    <p class="setup">Build the container.</p>
+    <p class="keyword medium">THEN SCALE<br/>CONTACT</p>
     <p class="support">Capacity before reach.</p>
+    <div class="swipe-dash" aria-hidden="true"></div>
+    <div class="swipe-cue" aria-hidden="true">→</div>
   </div>
 
-  <!-- 7 · TYPE -->
-  <div class="page page-type" data-document-role="page" data-label="IG-001 v2.3 Authority">
-    <p class="headline medium">What you hold<br/>when the room<br/>looks.</p>
+  <!-- 7 · KEYWORD-HERO · face header · swipe -->
+  <div class="page" data-document-role="page" data-label="IG-001 v2.4 Authority">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">7 / 8</p>
+    </div>
+    <p class="setup">When the room looks,</p>
+    <p class="keyword compact">WHAT YOU<br/>HOLD</p>
     <p class="support">Stance already live.</p>
+    <div class="swipe-dash" aria-hidden="true"></div>
+    <div class="swipe-cue" aria-hidden="true">→</div>
   </div>
 
-  <!-- 8 · CTA · chrome yes -->
-  <div class="page page-cta" data-document-role="page" data-label="IG-001 v2.3 CTA">
+  <!-- 8 · CTA poster · chrome yes · optional face -->
+  <div class="page page-cta" data-document-role="page" data-label="IG-001 v2.4 CTA">
+    <div class="face-header">
+      <div class="face-circle" aria-label="Face placeholder HITL twin swap">YG</div>
+      <p class="face-name">Yann Gabioud</p>
+      <p class="slide-index">8 / 8</p>
+    </div>
     <p class="headline">Architecture<br/>before theater.</p>
     <p class="hub">→ yanngabioud.com</p>
     <p class="chrome">Yann Gabioud · @YannGabioud</p>
